@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Code;
 use App\Models\Track;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 
@@ -15,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create weeks
+        $this->call(CategorySeeder::class);
         $this->call(WeekSeeder::class);
 
         // Create content
@@ -33,5 +34,7 @@ class DatabaseSeeder extends Seeder
                 return ['email' => "user{$id}@example.com"];
             })
             ->create();
+
+
     }
 }
