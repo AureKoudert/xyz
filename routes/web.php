@@ -5,9 +5,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WeekController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TrackController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Middleware\EnsureValidCodeMiddleware;
+
+Route::resource('categories', CategoryController::class);
 
 // Auth
 Route::get('/login', [LoginController::class, 'login'])->middleware('guest')->name('login');
@@ -40,3 +43,5 @@ Route::middleware('auth')->group(function () {
 
     Route::fallback(fn () => abort(404));
 });
+
+
