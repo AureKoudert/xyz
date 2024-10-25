@@ -26,8 +26,7 @@ class Category extends Model
 
         foreach ($categories as $name) {
             self::firstOrCreate(
-                ['name' => $name],
-                ['created_at' => now(), 'updated_at' => now()]
+                ['name' => $name]
             );
         }
     }
